@@ -76,6 +76,10 @@ def delete_movie(id):
     dist = conn.cursor()
 
     dist.execute(
+        "DELETE FROM moviegenre WHERE movie_id = %s", (id,)
+        )
+
+    dist.execute(
         "DELETE FROM movie WHERE imdbID = %s",
         (id,)
     )
